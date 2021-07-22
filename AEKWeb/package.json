@@ -1,0 +1,15 @@
+{
+  "name": "aekweb",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "parcel build StaticSrc/js/main.js --dist-dir wwwroot/dist/",
+    "watch": "parcel watch StaticSrc/js/main.js --dist-dir wwwroot/dist/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0-beta.2",
+    "parcel": "^2.0.0-beta.2"
+  }
+}
