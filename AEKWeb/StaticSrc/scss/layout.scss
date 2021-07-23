@@ -9,6 +9,18 @@ header {
     img {
         max-width: 100%;
     }
+
+    .container {
+        position: relative;
+    }
+
+    .login {
+        color: #b10000;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+    }
 }
 nav {
     background: #b10000;

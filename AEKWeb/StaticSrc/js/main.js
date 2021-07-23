@@ -1,2 +1,12 @@
 import "../scss/main.scss";
-console.log("hajj");
+import "./modal.js";
+
+
+const form = document.getElementById('login-form');
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+
+    console.log("send");
+});
