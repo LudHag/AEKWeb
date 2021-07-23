@@ -1,0 +1,35 @@
+
+
+header {
+    display: block;
+    position: relative;
+    padding: 15px;
+    background: #1a1a1a;
+
+    img {
+        max-width: 100%;
+    }
+}
+nav {
+    background: #b10000;
+    padding: 10px;
+
+    .container {
+        max-width: 700px;
+        display: flex;
+        justify-content: space-evenly;
+
+        .link {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            font-weight: 500;
+            font-size: 16px;
+
+            &:hover, &.active {
+                color: #999;
+            }
+        }
+    }
+}

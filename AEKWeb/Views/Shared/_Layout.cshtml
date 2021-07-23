@@ -10,16 +10,20 @@
 </head>
 <body>
     <header>
-        <img src="~/assets/logo.png" alt="Ältere Kamereren">
+        <div class="container">
+            <a href="/"><img src="~/assets/logo.png" alt="Ältere Kamereren"></a>
+        </div>
     </header>
     @{
         var path = Context.Request.Path.ToString();
     }
     <nav>
-        <a href="/" class="link@(path == "/" ? " active" : "")">Start</a>
-        <a href="/calendar" class="link@(path == "/calendar" ? " active" : "")">Kalender</a>
-        <a href="/files" class="link@(path == "/files" ? " active" : "")">Filer</a>
-        <a href="/contact" class="link@(path == "/contact" ? " active" : "")">Kontakt</a>
+        <div class="container">
+            <a href="/" class="link@(path == "/" ? " active" : "")">Start</a>
+            <a href="/calendar" class="link@(path == "/calendar" ? " active" : "")">Kalender</a>
+            <a href="/files" class="link@(path == "/files" ? " active" : "")">Filer</a>
+            <a href="/contact" class="link@(path == "/contact" ? " active" : "")">Kontakt</a>
+        </div>
     </nav>
     <div class="container">
         <main role="main">
@@ -27,9 +31,6 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        Footer
-    </footer>
     <script src="~/dist/main.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
