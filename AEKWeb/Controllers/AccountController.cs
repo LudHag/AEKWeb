@@ -1,5 +1,4 @@
-﻿using AEKWeb.Data;
-using AEKWeb.Models;
+﻿using AEKWeb.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -10,23 +9,16 @@ namespace AEKWeb.Controllers
     public class AccountController : Controller
     {
         private readonly SignInManager<IdentityUser> signInManager;
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly RoleManager<IdentityRole> roleManager;
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager,
-            RoleManager<IdentityRole> roleManager)
+        public AccountController(SignInManager<IdentityUser> signInManager)
         {
             this.signInManager = signInManager;
-            this.userManager = userManager;
-            this.roleManager = roleManager;
         }
         [HttpPost("Login")]
         public async Task<IActionResult> Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
-                var uuu = await userManager.FindByNameAsync(model.UserName);
-                _ = uuu;
                 var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, lockoutOnFailure: false);
 
                 if (result.Succeeded)
@@ -48,42 +40,6 @@ namespace AEKWeb.Controllers
             await signInManager.SignOutAsync();
             return Redirect("/");
         }
-
-#if DEBUG
-
-        [Route("InitNintendo")]
-        public async Task<ActionResult> InitNintendo(string memberPass, string styrelsePass)
-        {
-
-            foreach (var r in AkRoles.Roles)
-            {
-                var roleresult = await roleManager.FindByNameAsync(r);
-                if (roleresult != null) continue;
-                var role = new IdentityRole(r);
-                await roleManager.CreateAsync(role);
-            }
-
-            var memberUser = await userManager.FindByNameAsync("medlem");
-            if (memberUser == null)
-            {
-                var newUser = new IdentityUser() { UserName = "medlem" };
-                await userManager.CreateAsync(newUser, memberPass);
-                memberUser = await userManager.FindByNameAsync("medlem");
-                await userManager.AddToRoleAsync(memberUser, AkRoles.Medlem);
-            }
-
-            var styrelseUser = await userManager.FindByNameAsync("styrelse");
-            if (styrelseUser == null)
-            {
-                var newUser = new IdentityUser() { UserName = "styrelse" };
-                await userManager.CreateAsync(newUser, styrelsePass);
-                styrelseUser = await userManager.FindByNameAsync("styrelse");
-                await userManager.AddToRoleAsync(styrelseUser, AkRoles.Styrelse);
-            }
-
-            return Json(new { success = true });
-        }
-#endif
 
     }
 }
