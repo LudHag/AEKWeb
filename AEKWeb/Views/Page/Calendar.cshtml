@@ -1,5 +1,18 @@
-﻿@{
+﻿@model CalendarModel
+@{
     ViewData["Title"] = "Ältere Kamereren - Kalender";
 }
 
 <h1>Kalender</h1>
+
+<ul class="calendar">
+    @foreach (var e in Model.Events)
+    {
+        <li>
+            <span class="date">@e.Date.ToString("yyyy-MM-dd")</span>
+            <span class="place">@e.Place</span>
+            <span class="event">@e.Event</span>
+        </li>
+    }
+
+</ul>

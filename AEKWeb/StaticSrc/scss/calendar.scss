@@ -1,0 +1,16 @@
+.calendar {
+    list-style: none;
+    padding: 0;
+
+    li {
+        padding: 15px 0;
+        display: flex;
+    }
+
+    li + li {
+        border-top: 1px solid #000;
+    }
+    .place, .event, .date{
+        width: 33%;
+    }
+}
