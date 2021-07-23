@@ -1,3 +1,29 @@
+@import "normalize";
 body {
-  background-color: green;
+    font-family: Roboto,sans-serif;
+}
+header {
+    display: block;
+    position: relative;
+    padding: 15px;
+    background: #1a1a1a;
+}
+nav {
+    background: #b10000;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+
+    .link {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 0 15px;
+        font-weight: 500;
+        font-size: 16px;
+
+        &:hover, &.active {
+            color: #999;
+        }
+    }
 }

@@ -10,8 +10,17 @@
 </head>
 <body>
     <header>
-        Header
+        <img src="~/assets/logo.png" alt="Ältere Kamereren">
     </header>
+    @{
+        var path = Context.Request.Path.ToString();
+    }
+    <nav>
+        <a href="/" class="link@(path == "/" ? " active" : "")">Start</a>
+        <a href="/calendar" class="link@(path == "/calendar" ? " active" : "")">Kalender</a>
+        <a href="/files" class="link@(path == "/files" ? " active" : "")">Filer</a>
+        <a href="/contact" class="link@(path == "/contact" ? " active" : "")">Kontakt</a>
+    </nav>
     <div class="container">
         <main role="main">
             @RenderBody()
