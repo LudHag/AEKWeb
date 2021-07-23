@@ -12,7 +12,15 @@
     <header>
         <div class="container">
             <a href="/"><img src="~/assets/logo.png" alt="Ältere Kamereren"></a>
-            <a data-modal="login-modal" class="login">Logga in</a>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="/Account/Logout" class="login">Logga ut</a>
+            }
+            else
+            {
+                <a data-modal="login-modal" class="login">Logga in</a>
+            }
         </div>
     </header>
     @{
@@ -39,12 +47,13 @@
             <h2>Logga in</h2>
             <form id="login-form">
                 <div class="form-group">
-                    <label><input type="radio" name="username" value="Medlem" checked /> Medlem</label>
-                    <label><input type="radio" name="username" value="Styrelse" /> Styrelse</label>
+                    <label><input type="radio" name="username" value="medlem" checked /> Medlem</label>
+                    <label><input type="radio" name="username" value="styrelse" /> Styrelse</label>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" placeholder="Lösenord" />
+                    <input type="password" name="password" placeholder="Lösenord" required />
                     <input type="submit" value="Skicka">
+                    <p class="error"></p>
                 </div>
             </form>
 

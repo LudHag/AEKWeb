@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace AEKWeb.Controllers
 {
-    [Route("Login")]
-    public class LoginController : Controller
+    [Route("Account")]
+    public class AccountController : Controller
     {
         private readonly SignInManager<IdentityUser> signInManager;
         private readonly UserManager<IdentityUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
 
-        public LoginController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager,
+        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager,
             RoleManager<IdentityRole> roleManager)
         {
             this.signInManager = signInManager;
@@ -25,6 +25,8 @@ namespace AEKWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                var uuu = await userManager.FindByNameAsync(model.UserName);
+                _ = uuu;
                 var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, lockoutOnFailure: false);
 
                 if (result.Succeeded)
@@ -40,6 +42,12 @@ namespace AEKWeb.Controllers
             return Json(new { success = false, message = "Inloggning misslyckades" });
         }
 
+        [HttpGet("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return Redirect("/");
+        }
 
 #if DEBUG
 
@@ -55,12 +63,12 @@ namespace AEKWeb.Controllers
                 await roleManager.CreateAsync(role);
             }
 
-            var memberUser = await userManager.FindByNameAsync("member");
+            var memberUser = await userManager.FindByNameAsync("medlem");
             if (memberUser == null)
             {
-                var newUser = new IdentityUser() { UserName = "member" };
+                var newUser = new IdentityUser() { UserName = "medlem" };
                 await userManager.CreateAsync(newUser, memberPass);
-                memberUser = await userManager.FindByNameAsync("member");
+                memberUser = await userManager.FindByNameAsync("medlem");
                 await userManager.AddToRoleAsync(memberUser, AkRoles.Medlem);
             }
 
