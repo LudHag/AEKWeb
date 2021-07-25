@@ -2,6 +2,7 @@
 using AEKWeb.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AEKWeb.Controllers
@@ -25,6 +26,16 @@ namespace AEKWeb.Controllers
                 Place = model.Place,
                 Description = model.Description
             });
+            await dbContext.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var eventToDelete = dbContext.Events.Single(x => x.Id == id);
+
+            dbContext.Events.Remove(eventToDelete);
             await dbContext.SaveChangesAsync();
             return Ok();
         }

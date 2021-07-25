@@ -1,7 +1,9 @@
 ﻿using AEKWeb.Data;
 using AEKWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AEKWeb.Controllers
 {
@@ -22,7 +24,9 @@ namespace AEKWeb.Controllers
         public IActionResult Calendar()
         {
 
-            var events = dbContext.Events;
+            var events = dbContext.Events
+                .Where(x => x.Date >= DateTime.Now.Date)
+                .OrderBy(x => x.Date);
 
             var model = new CalendarModel(events);
 

@@ -8,7 +8,7 @@
 @if (User.IsInRole("Styrelse"))
 {
     <p>Lägg till kallenderhändelse:</p>
-    <form method="post" action="/Event">
+    <form method="post" id="createevent" action="/Event">
         <div class="form-group">
             <input type="text" class="date-picker" autocomplete="off" name="date" placeholder="yyyy/mm/dd" required />
             <input type="text" name="place" placeholder="Plats" required />
@@ -29,6 +29,11 @@
             <span class="date">@e.Date.ToString("yyyy-MM-dd")</span>
             <span class="place">@e.Place</span>
             <span class="event">@e.Description</span>
+
+            @if (User.IsInRole("Styrelse"))
+            {
+                <a href="/Event/@e.Id" class="action remove">X</a>
+            }
         </li>
     }
 
