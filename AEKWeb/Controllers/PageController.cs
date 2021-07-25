@@ -1,7 +1,6 @@
 ﻿using AEKWeb.Data;
 using AEKWeb.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 
 namespace AEKWeb.Controllers
@@ -9,6 +8,12 @@ namespace AEKWeb.Controllers
 
     public class PageController : Controller
     {
+        private readonly AEKContext dbContext;
+
+        public PageController(AEKContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
         public IActionResult Index()
         {
             return View();
@@ -17,10 +22,9 @@ namespace AEKWeb.Controllers
         public IActionResult Calendar()
         {
 
-            var model = new CalendarModel(new List<CalendarEvent>() {
-                new CalendarEvent() {Date = DateTime.Now , Event = "Sola sig", Place ="Lund"},
-                new CalendarEvent() {Date = DateTime.Now.AddYears(1) , Event = "Sola sig igen", Place ="Malmö"}
-            });
+            var events = dbContext.Events;
+
+            var model = new CalendarModel(events);
 
             return View(model);
         }

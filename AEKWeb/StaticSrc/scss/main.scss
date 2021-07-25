@@ -5,10 +5,33 @@
 @import "textimage";
 @import "calendar";
 
+@import 'js-datepicker/dist/datepicker.min.css';
+
 body {
     font-family: Roboto,sans-serif;
 }
 
 main {
     margin: 30px 15px;
+}
+
+input[type=password], input[type=text], textarea {
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    display: inline-block;
+    vertical-align: top;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+}
+textarea {
+    border-width: 2px;
+    border-style: inset;
+}
+
+input[type=submit] {
+    padding: 5px 15px;
+    background: #ccc;
+    border: 0 none;
+    cursor: pointer;
+    border-radius: 5px;
 }

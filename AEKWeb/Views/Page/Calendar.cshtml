@@ -5,13 +5,30 @@
 
 <h1>Kalender</h1>
 
+@if (User.IsInRole("Styrelse"))
+{
+    <p>Lägg till kallenderhändelse:</p>
+    <form method="post" action="/Event">
+        <div class="form-group">
+            <input type="text" class="date-picker" autocomplete="off" name="date" placeholder="yyyy/mm/dd" required />
+            <input type="text" name="place" placeholder="Plats" required />
+            <textarea name="description" placeholder="Beskrivning" required></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Skicka">
+            <p class="error"></p>
+        </div>
+
+    </form>
+}
+
 <ul class="calendar">
     @foreach (var e in Model.Events)
     {
         <li>
             <span class="date">@e.Date.ToString("yyyy-MM-dd")</span>
             <span class="place">@e.Place</span>
-            <span class="event">@e.Event</span>
+            <span class="event">@e.Description</span>
         </li>
     }
 

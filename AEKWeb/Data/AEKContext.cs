@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AEKWeb.Data
 {
@@ -12,5 +9,8 @@ namespace AEKWeb.Data
             : base(options)
         {
         }
+
+        public DbSet<CalendarEvent> Events { get; set; }
+
     }
 }

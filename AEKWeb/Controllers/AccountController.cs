@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AEKWeb.Controllers
 {
-    [Route("Account")]
+    [Route("[controller]")]
     public class AccountController : Controller
     {
         private readonly SignInManager<IdentityUser> signInManager;

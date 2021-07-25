@@ -22,3 +22,13 @@ form.addEventListener("submit", function (e) {
       error.textContent = "Oväntat fel";
     });
 });
+
+
+import datepicker from 'js-datepicker'
+
+const picker = datepicker('.date-picker', {
+    formatter: (input, date, instance) => {
+        const value = date.toLocaleDateString()
+        input.value = value // => '1/1/2099'
+    }
+});
