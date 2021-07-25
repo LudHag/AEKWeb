@@ -28,7 +28,7 @@ namespace AEKWeb.Controllers
                 .Where(x => x.Date >= DateTime.Now.Date)
                 .OrderBy(x => x.Date);
 
-            var model = new CalendarModel(events);
+            var model = new CalendarViewModel(events);
 
             return View(model);
         }
@@ -36,13 +36,21 @@ namespace AEKWeb.Controllers
         public IActionResult Files()
         {
             var loggedIn = User.Identity.IsAuthenticated;
-            var model = new FilesModel(loggedIn, new List<string>() { "Flöjt", "Trombon" });
+            var model = new FilesViewModel(loggedIn, new List<string>() { "Flöjt", "Trombon" });
             return View(model);
         }
         [Route("Contact")]
         public IActionResult Contact()
         {
-            return View();
+            IEnumerable<SignUp> signups = new List<SignUp>();
+            if (User.IsInRole("Styrelse"))
+            {
+                signups = dbContext.SignUps.OrderBy(x => x.SignupDate);
+
+            }
+            var model = new ContactViewModel(signups);
+
+            return View(model);
         }
 
     }

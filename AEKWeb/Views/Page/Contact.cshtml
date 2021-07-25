@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ContactViewModel
+
+@{
     ViewData["Title"] = "Ältere Kamereren - Kontakt";
 }
 
@@ -20,7 +22,7 @@
     </div>
     <div class="form">
         <h2>Jag vill gå med i ÄK</h2>
-        <form id="joinform">
+        <form id="joinform" method="POST" action="/Signup">
             <label>Namn: <input type="text" name="name" required /></label>
             <label>Epost: <input type="email" name="email" required /></label>
             <label>Instrument: <input type="text" name="instrument" required /></label>
@@ -28,8 +30,34 @@
             <input type="submit" value="Skicka">
             <p class="error"></p>
         </form>
-
-
     </div>
 
 </div>
+
+@if (User.IsInRole("Styrelse"))
+{
+    <div class="signuplist">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Namn</th>
+                    <th scope="col">Epost</th>
+                    <th scope="col">Instrument</th>
+                    <th scope="col">Startår</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var signup in Model.signups)
+                {
+                    <tr>
+                        <td>@signup.Name</td>
+                        <td>@signup.Email</td>
+                        <td>@signup.Instrument</td>
+                        <td>@signup.StartYear</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

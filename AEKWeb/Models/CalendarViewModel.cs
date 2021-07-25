@@ -3,5 +3,5 @@ using System.Collections.Generic;
 
 namespace AEKWeb.Models
 {
-    public record CalendarModel(IEnumerable<CalendarEvent> Events);
+    public record CalendarViewModel(IEnumerable<CalendarEvent> Events);
 }
