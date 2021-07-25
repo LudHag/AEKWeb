@@ -12,5 +12,7 @@ namespace AEKWeb.Data
 
         public DbSet<CalendarEvent> Events { get; set; }
 
+        public DbSet<SignUp> SignUps { get; set; }
+
     }
 }

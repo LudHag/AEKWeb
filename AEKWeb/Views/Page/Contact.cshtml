@@ -2,4 +2,34 @@
     ViewData["Title"] = "Ältere Kamereren - Kontakt";
 }
 
-<h1>Kontakt</h1>
+<div class="text-form">
+
+    <div class="text">
+        <h1>Kontakta oss</h1>
+        <p>
+            Om du vill gå med i ÄK kan du fylla i formuläret här intell. Vill du
+            uppdatera kontaktuppgifter eller diskutera livets stora frågor,
+            når du oss via mailadressen <a href="mailto:aelterekamereren@gmail.com">aelterekamereren@gmail.com</a>.
+
+            Som medlem i ÄK får du e-post med info om aktiviteter vid väl valda tillfällen,
+            framför allt Lundakarnevaler och orkesterjubileum. Vi spelar i karnevalståget (noter!)
+            och ses över en julöl eller en försommarbanjo någon gång emellanåt.
+
+            Styrelsen består för närvarande av Ellinor Folkeson, Pontus Persson och Rebecka Erntell.
+        </p>
+    </div>
+    <div class="form">
+        <h2>Jag vill gå med i ÄK</h2>
+        <form id="joinform">
+            <label>Namn: <input type="text" name="name" required /></label>
+            <label>Epost: <input type="email" name="email" required /></label>
+            <label>Instrument: <input type="text" name="instrument" required /></label>
+            <label>Startår i AK: <input type="text" name="startyear" required /></label>
+            <input type="submit" value="Skicka">
+            <p class="error"></p>
+        </form>
+
+
+    </div>
+
+</div>

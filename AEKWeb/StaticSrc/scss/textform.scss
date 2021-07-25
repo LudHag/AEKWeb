@@ -1,0 +1,43 @@
+.text-form {
+    position: relative;
+    display: flex;
+
+    .text {
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        input {
+            margin-right: 0;
+        }
+    }
+}
+
+
+@media screen and (min-width: 992px) {
+    .text-form {
+        display: flex;
+
+        .text {
+            width: 50%;
+            background-color: #dcb7b7;
+            padding: 40px;
+            border-radius: 30px;
+            margin-right: 40px;
+        }
+
+        .form {
+            width: 50%;
+      
+        }
+    }
+}
