@@ -15,3 +15,15 @@ if (form) {
         });
     });
 }
+
+const removeButtons = document.querySelectorAll(".signuplist .remove");
+
+removeButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        fetch(button.href, {
+            method: "DELETE",
+        }).then(() => location.reload());
+    });
+});

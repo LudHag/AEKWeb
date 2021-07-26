@@ -1,6 +1,5 @@
 .text-form {
     position: relative;
-    display: flex;
 
     .text {
         width: 100%;
@@ -20,6 +19,21 @@
             margin-right: 0;
         }
     }
+   
+}
+table {
+    display: block;
+    overflow: auto;
+
+    .action {
+        text-decoration: none;
+        color: red;
+    }
+}
+
+.download-csv {
+    margin-top: 30px;
+    display: block;
 }
 
 
@@ -37,7 +51,6 @@
 
         .form {
             width: 50%;
-      
         }
     }
 }

@@ -24,7 +24,7 @@ namespace AEKWeb.Controllers
         {
             var signups = dbContext.SignUps.OrderBy(x => x.SignupDate);
 
-            var csv = string.Join("\r\n", signups.Select(x => ToCsvFormat(x)));
+            var csv = GetCsvHeader() + string.Join("\r\n", signups.Select(x => ToCsvFormat(x)));
 
             Encoding iso = Encoding.GetEncoding("ISO-8859-1");
             Encoding utf8 = Encoding.UTF8;
@@ -33,12 +33,17 @@ namespace AEKWeb.Controllers
             return File(isoBytes, "application/octet-stream", "Signups.csv", false);
         }
 
-        public string ToCsvFormat(SignUp signup)
+        private static string GetCsvHeader()
+        {
+            return "Namn" + ";" + "Epost" + ";" + "Instrument" + ";" + "Startår" + "\r\n";
+        }
+
+        private static string ToCsvFormat(SignUp signup)
         {
             return EscapeCsvChars(signup.Name) + ";" + EscapeCsvChars(signup.Email) + ";" + EscapeCsvChars(signup.Instrument) + ";" + EscapeCsvChars(signup.StartYear);
         }
 
-        public string EscapeCsvChars(string text)
+        private static string EscapeCsvChars(string text)
         {
             return "\"" + text?.Replace("\"", "\"\"") + "\"";
         }

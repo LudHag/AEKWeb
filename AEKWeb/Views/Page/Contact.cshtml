@@ -36,6 +36,8 @@
 
 @if (User.IsInRole("Styrelse"))
 {
+    <a href="/Signup" class="download-csv">Ladda ned som csv fil</a>
+
     <div class="signuplist">
         <table>
             <thead>
@@ -44,6 +46,7 @@
                     <th scope="col">Epost</th>
                     <th scope="col">Instrument</th>
                     <th scope="col">Startår</th>
+                    <th scope="col"></th>
                 </tr>
 
             </thead>
@@ -55,6 +58,7 @@
                         <td>@signup.Email</td>
                         <td>@signup.Instrument</td>
                         <td>@signup.StartYear</td>
+                        <td><a class="action remove" href="/Signup/@signup.Id">X</a></td>
                     </tr>
                 }
             </tbody>
