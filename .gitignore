@@ -248,5 +248,7 @@ ModelManifest.xml
 /AEKWeb/wwwroot/dist/*
 appsettings.json
 
+/AEKWeb/Files/*
+
 .vscode
 .parcel-cache

@@ -6,6 +6,7 @@
 @import "textform";
 @import "calendar";
 @import "form";
+@import "files";
 
 @import 'js-datepicker/dist/datepicker.min.css';
 
@@ -15,6 +16,10 @@ body {
 
 main {
     margin: 30px 15px;
+}
+
+p {
+    line-height: 1.3rem;
 }
 
 .signuplist{

@@ -1,0 +1,15 @@
+.files {
+    columns: 2;
+    margin-bottom: 30px;
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: #b10000;
+        padding: 3px 0;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,21 +1,32 @@
-﻿@model FilesViewModel
+﻿@using AEKWeb.Extensions;
+@model FilesViewModel
 
 @{
     ViewData["Title"] = "Ältere Kamereren - Filer";
 }
 
-<h1>Noter till lundakarnevalen</h1>
 
 @if (!Model.IsLoggedIn)
 {
+    <h1>Noter till lundakarnevalen</h1>
+
     <p>Du måste vara inloggad för att kunna ladda ned filer</p>
 }
 else
 {
-    <div class="files">
-        @foreach (var file in Model.Files)
-        {
-            <a href="/Files/@file">@file</a>
-        }
+    <div class="text-image">
+
+        <div class="image">
+            <img src="~/assets/kavaj.jpg" />
+        </div>
+        <div class="text">
+            <h1>Noter till lundakarnevalen</h1>
+            <div class="files">
+                @foreach (var file in Model.Files)
+                {
+                    <a href="/File/@(file.Englify())">@file</a>
+                }
+            </div>
+        </div>
     </div>
 }

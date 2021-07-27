@@ -36,7 +36,25 @@ namespace AEKWeb.Controllers
         public IActionResult Files()
         {
             var loggedIn = User.Identity.IsAuthenticated;
-            var model = new FilesViewModel(loggedIn, new List<string>() { "Flöjt", "Trombon" });
+            var model = new FilesViewModel(loggedIn,
+                new List<string>() {
+                    "Altsax1",
+                    "Altsax2",
+                    "Banjo",
+                    "Flöjt",
+                    "Horn2",
+                    "Klarinett1",
+                    "Klarinett2",
+                    "Klarinett3",
+                    "Tenorsax",
+                    "Trombon1",
+                    "Trombon2",
+                    "Trombon3",
+                    "Trumpet1",
+                    "Trumpet2",
+                    "Trumpet3",
+                    "Tuba"
+                });
             return View(model);
         }
         [Route("Contact")]
