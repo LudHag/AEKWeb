@@ -27,4 +27,8 @@
     </None>
   </ItemGroup>
 
+  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+    <Exec Command="npm run build" />
+  </Target>
+
 </Project>

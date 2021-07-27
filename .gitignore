@@ -247,6 +247,7 @@ ModelManifest.xml
 .fake/
 /AEKWeb/wwwroot/dist/*
 appsettings.json
+FolderProfile.pubxml
 
 /AEKWeb/Files/*
 
