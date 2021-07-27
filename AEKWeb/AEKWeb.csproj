@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-AEKWeb-16D421DF-DF58-4A27-A529-226F2CA832EC</UserSecretsId>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
   <ItemGroup>
