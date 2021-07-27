@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 namespace AEKWeb.Controllers
 {
     [Route("[controller]")]
-    [Authorize(Roles = "Styrelse")]
     public class SignupController : Controller
     {
         private readonly AEKContext dbContext;
@@ -20,6 +19,7 @@ namespace AEKWeb.Controllers
             this.dbContext = dbContext;
         }
         [HttpGet]
+        [Authorize(Roles = "Styrelse")]
         public IActionResult GetAsCsv()
         {
             var signups = dbContext.SignUps.OrderBy(x => x.SignupDate);
@@ -64,6 +64,7 @@ namespace AEKWeb.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Styrelse")]
         public async Task<IActionResult> Delete(int id)
         {
             var eventToDelete = dbContext.SignUps.Single(x => x.Id == id);
