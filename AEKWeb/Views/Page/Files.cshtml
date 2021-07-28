@@ -5,21 +5,18 @@
     ViewData["Title"] = "Ältere Kamereren - Filer";
 }
 
+<div class="text-image">
 
-@if (!Model.IsLoggedIn)
-{
-    <h1>Noter till lundakarnevalen</h1>
-
-    <p>Du måste vara inloggad för att kunna ladda ned filer</p>
-}
-else
-{
-    <div class="text-image">
-
-        <div class="image">
-            <img src="~/assets/kavaj.jpg" />
-        </div>
-        <div class="text">
+    <div class="image">
+        <img src="~/assets/kavaj.jpg" />
+    </div>
+    <div class="text">
+        @if (!Model.IsLoggedIn)
+        {
+            <p>Du måste vara inloggad för att kunna ladda ned filer</p>
+        }
+        else
+        {
             <h1>Noter till lundakarnevalen</h1>
             <div class="files">
                 @foreach (var file in Model.Files)
@@ -27,6 +24,7 @@ else
                     <a href="/File/@(file.Englify())">@file</a>
                 }
             </div>
-        </div>
+        }
     </div>
+</div>
 }
