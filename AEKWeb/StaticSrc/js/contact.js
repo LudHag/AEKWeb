@@ -2,6 +2,7 @@
 const form = document.getElementById("joinform");
 if (form) {
     const error = form.querySelector(".error");
+    const confirm = form.querySelector(".confirm");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       const data = new FormData(form);
@@ -9,9 +10,14 @@ if (form) {
             method: "POST",
             body: data,
         })
-        .then(() => location.reload())
-        .catch(() => {
-          error.textContent = "Oväntat fel";
+        .then((res) => {
+            if (res.ok) {
+                form.reset();
+                confirm.classList.remove("hide");
+            } else {
+                error.classList.remove("hide");
+                error.textContent = "Oväntat fel";
+            }
         });
     });
 }
