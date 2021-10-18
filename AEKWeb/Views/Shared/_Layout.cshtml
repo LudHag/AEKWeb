@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="~/dist/main.css" asp-append-version="true">
     @RenderSection("styles", required: false)
     <title>@ViewData["Title"]</title>
+    <meta property="og:title" content="@ViewData["Title"]" />
+    @if (ViewData["Description"] != null)
+    {
+        <meta property="og:description" content="@ViewData["Description"]" />
+        <meta name="description" content="@ViewData["Description"]">
+    }
+    
 </head>
 <body>
     <header>
