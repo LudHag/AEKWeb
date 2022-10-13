@@ -11,7 +11,6 @@ if (form) {
     }).then((res) => {
       if (res.ok) {
         res.text().then((text) => {
-          console.log(text);
           if (!text.length) {
             error.classList.add('hide');
             form.reset();
