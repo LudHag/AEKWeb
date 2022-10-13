@@ -51,6 +51,11 @@ namespace AEKWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(SignupModel model)
         {
+            if(model.Question != "5")
+            {
+                return Ok("Svara gärna rätt på frågan");
+            }
+
             dbContext.SignUps.Add(new SignUp()
             {
                 SignupDate = DateTime.Now,
