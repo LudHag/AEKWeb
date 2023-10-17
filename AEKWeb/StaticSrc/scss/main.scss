@@ -1,27 +1,27 @@
-@import "normalize";
-@import "grid";
-@import "modal";
-@import "layout";
-@import "textimage";
-@import "textform";
-@import "calendar";
-@import "form";
-@import "files";
+@import 'normalize';
+@import 'grid';
+@import 'modal';
+@import 'layout';
+@import 'textimage';
+@import 'textform';
+@import 'calendar';
+@import 'form';
+@import 'files';
 
-@import 'js-datepicker/dist/datepicker.min.css';
+@import '../../node_modules/js-datepicker/dist/datepicker.min.css';
 
 body {
-    font-family: Roboto,sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 main {
-    margin: 30px 15px;
+  margin: 30px 15px;
 }
 
 p {
-    line-height: 1.3rem;
+  line-height: 1.3rem;
 }
 
-.signuplist{
-    margin-top: 30px;
+.signuplist {
+  margin-top: 30px;
 }

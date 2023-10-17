@@ -9,11 +9,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-beta.2",
-    "parcel": "^2.0.0-beta.2",
-    "autoprefixer": "^10.1.0"
+    "@parcel/transformer-sass": "^2.10.0",
+    "autoprefixer": "^10.1.0",
+    "parcel": "^2.10.0"
   },
   "dependencies": {
-    "js-datepicker": "^5.18.0"
+    "js-datepicker": "^5.18.2"
   }
 }
