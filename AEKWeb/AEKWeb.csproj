@@ -4,6 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <UserSecretsId>aspnet-AEKWeb-16D421DF-DF58-4A27-A529-226F2CA832EC</UserSecretsId>
     <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>AEKWeb</AssemblyName>
+    <PackageId>AEKWeb</PackageId>
     <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
