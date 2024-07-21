@@ -1,47 +1,46 @@
-
-
 header {
-    display: block;
+  display: block;
+  position: relative;
+  padding: 15px;
+  background: #1a1a1a;
+
+  img {
+    max-width: 100%;
+  }
+
+  .container {
     position: relative;
-    padding: 15px;
-    background: #1a1a1a;
+  }
 
-    img {
-        max-width: 100%;
-    }
-
-    .container {
-        position: relative;
-    }
-
-    .login {
-        color: #b10000;
-        position: absolute;
-        top: 0;
-        right: 0;
-        cursor: pointer;
-    }
+  .login {
+    color: #b10000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
 }
 nav {
-    background: #b10000;
-    padding: 10px;
+  background: #b10000;
+  padding: 10px;
 
-    .container {
-        max-width: 700px;
-        display: flex;
-        justify-content: space-evenly;
+  .container {
+    max-width: 700px;
+    display: flex;
+    justify-content: space-evenly;
 
-        .link {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            padding: 0 15px;
-            font-weight: 500;
-            font-size: 16px;
+    .link {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 0 15px;
+      font-weight: 500;
+      font-size: 16px;
 
-            &:hover, &.active {
-                color: #999;
-            }
-        }
+      &:hover,
+      &.active {
+        color: #999;
+      }
     }
+  }
 }
