@@ -18,7 +18,7 @@
 <body>
     <header>
         <div class="container">
-            <a href="/"><img src="~/assets/logo.png" alt="Ältere Kamereren"></a>
+            <a href="/"><img src="~/assets/logo.png" alt="Ältere Kamereren logo"></a>
 
             @if (User.Identity.IsAuthenticated)
             {
@@ -26,7 +26,7 @@
             }
             else
             {
-                <a data-modal="login-modal" class="login">Logga in</a>
+                <a data-modal="login-modal" href"#" role="button" aria-haspopup="dialog" class="login">Logga in</a>
             }
         </div>
     </header>
@@ -35,7 +35,7 @@
     }
     <nav>
         <div class="container">
-            <a href="/" class="link@(path == "/" ? " active" : "")">Start</a>
+            <a href="/" class="link@(path == "/" ? " active" : "")">Startsida</a>
             <a href="/calendar" class="link@(path == "/calendar" ? " active" : "")">Kalender</a>
             <a href="/files" class="link@(path == "/files" ? " active" : "")">Filer</a>
             <a href="/contact" class="link@(path == "/contact" ? " active" : "")">Kontakt</a>
