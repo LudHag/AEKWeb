@@ -18,6 +18,7 @@ namespace AEKWeb.Controllers
         }
         public IActionResult Index()
         {
+            ViewData["Canonical"] = "https://www.aelterekamereren.org";
             return View();
         }
         [Route("Calendar")]
@@ -29,6 +30,7 @@ namespace AEKWeb.Controllers
                 .OrderBy(x => x.Date);
 
             var model = new CalendarViewModel(events);
+            ViewData["Canonical"] = "https://www.aelterekamereren.org/calendar";
 
             return View(model);
         }
@@ -55,6 +57,7 @@ namespace AEKWeb.Controllers
                     "Trumpet3",
                     "Tuba"
                 });
+            ViewData["Canonical"] = "https://www.aelterekamereren.org/files";
             return View(model);
         }
         [Route("Contact")]
@@ -67,7 +70,7 @@ namespace AEKWeb.Controllers
 
             }
             var model = new ContactViewModel(signups);
-
+            ViewData["Canonical"] = "https://www.aelterekamereren.org/contact";
             return View(model);
         }
 
