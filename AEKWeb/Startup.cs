@@ -23,6 +23,10 @@ public class Startup(IConfiguration configuration)
         services.AddIdentity<IdentityUser, IdentityRole>()
             .AddEntityFrameworkStores<AEKContext>();
 
+        services.AddSingleton( new AekSettings() {
+            CDN = Configuration["aekcdn"]
+        });
+
         services.Configure<IdentityOptions>(options =>
         {
             options.Password.RequireDigit = false;

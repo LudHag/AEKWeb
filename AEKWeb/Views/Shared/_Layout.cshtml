@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link rel="stylesheet" href="~/dist/main.css" asp-append-version="true">
+    <link rel="stylesheet" href="@settings.CDN/dist/main.css" asp-append-version="true">
     @RenderSection("styles", required: false)
     <title>@ViewData["Title"]</title>
     <meta property="og:title" content="@ViewData["Title"]" />
@@ -23,7 +23,7 @@
 <body>
     <header>
         <div class="container">
-            <a href="/"><img src="~/assets/logo.png" alt="Ältere Kamereren logo"></a>
+            <a href="/"><img src="@settings.CDN/assets/logo.png" alt="Ältere Kamereren logo"></a>
 
             @if (User.Identity.IsAuthenticated)
             {
@@ -73,7 +73,7 @@
 
         </div>
     </div>
-    <script src="~/dist/main.js" asp-append-version="true"></script>
+    <script src="@settings.CDN/dist/main.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
