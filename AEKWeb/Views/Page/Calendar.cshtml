@@ -8,7 +8,7 @@
 
 @if (User.IsInRole("Styrelse"))
 {
-    <p>Lägg till kallenderhändelse:</p>
+    <p>Lägg till kalenderhändelse:</p>
     <form method="post" id="createevent" action="/Event">
         <div class="form-group">
             <input type="text" class="date-picker" autocomplete="off" name="date" placeholder="yyyy/mm/dd" required />
