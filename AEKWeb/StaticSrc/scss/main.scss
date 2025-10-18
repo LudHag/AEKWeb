@@ -1,14 +1,14 @@
-@import 'normalize';
-@import 'grid';
-@import 'modal';
-@import 'layout';
-@import 'textimage';
-@import 'textform';
-@import 'calendar';
-@import 'form';
-@import 'files';
+@use "normalize" as *;
+@use "grid" as *;
+@use "modal" as *;
+@use "layout" as *;
+@use "textimage" as *;
+@use "textform" as *;
+@use "calendar" as *;
+@use "form" as *;
+@use "files" as *;
 
-@import '../../node_modules/js-datepicker/dist/datepicker.min.css';
+@use "../../node_modules/js-datepicker/dist/datepicker.min.css" as *;
 
 body {
   font-family: Roboto, sans-serif;

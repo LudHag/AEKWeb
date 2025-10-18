@@ -10,9 +10,9 @@
   "license": "ISC",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.15.2",
+    "@parcel/transformer-sass": "^2.16.0",
     "autoprefixer": "^10.4.21",
-    "parcel": "^2.15.2"
+    "parcel": "^2.16.0"
   },
   "dependencies": {
     "js-datepicker": "^5.18.4"
